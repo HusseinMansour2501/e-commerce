@@ -1,0 +1,47 @@
+.category-bar-wrapper {
+  background: white;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  position: sticky;
+  top: 70px; 
+  z-index: 100;
+}
+
+.category-items {
+  display: flex;
+  gap: 15px;
+  overflow-x: auto; 
+  white-space: nowrap;
+  padding-bottom: 5px;
+}
+
+
+.category-items::-webkit-scrollbar {
+  display: none;
+}
+
+.cat-btn {
+  background: #f8f9fa;
+  border: 1px solid #ddd;
+  padding: 8px 20px;
+  border-radius: 25px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.cat-btn:hover {
+  background: #7e67d3;
+  color: white;
+  border-color: #7e67d3;
+}
+
+/* Tablet & Mobile fix */
+@media (max-width: 768px) {
+  .cat-btn {
+    padding: 6px 15px;
+    font-size: 0.85rem;
+  }
+}

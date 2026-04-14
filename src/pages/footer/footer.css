@@ -1,0 +1,147 @@
+.footer-section {
+  background-color: #1a1a1a; /* Dark Navy/Black */
+  padding: 80px 0 30px;
+  color: #fff;
+  margin-top: 50px;
+}
+
+.footer-about-text {
+  color: #aaa;
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-top: 15px;
+}
+
+.footer-heading {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 25px;
+  color: #fff;
+  position: relative;
+}
+
+/* Line under heading */
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  width: 40px;
+  height: 2px;
+  background: #64d4b3;
+  bottom: -8px;
+  left: 0;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: #aaa;
+  text-decoration: none;
+  transition: 0.3s;
+  font-size: 0.95rem;
+}
+
+.footer-links a:hover {
+  color: #64d4b3;
+  padding-left: 5px;
+}
+
+.footer-contact-info {
+  list-style: none;
+  padding: 0;
+  color: #aaa;
+}
+
+.footer-contact-info li {
+  margin-bottom: 15px;
+  font-size: 0.95rem;
+}
+
+.social-icons {
+  margin-top: 25px;
+  display: flex;
+  gap: 15px;
+}
+
+/* 1. Base Style lel-icons (zay ma hya) */
+.social-icons a {
+  color: white;
+  background: rgba(255, 255, 255, 0.05);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.4s ease; /* Transition na3ma */
+  text-decoration: none;
+  font-size: 1.2rem;
+}
+
+/* 2. Hover Transitions (Common) */
+.social-icons a:hover {
+  transform: translateY(-5px) rotate(8deg); /* Ra2sha baseta m3a el-hover */
+  color: white !important;
+}
+
+/* 3. Original Colors on Hover */
+
+/* Facebook Blue */
+.social-icons a.fb-hover:hover {
+  background-color: #1877F2 !important;
+  box-shadow: 0 10px 20px rgba(24, 119, 242, 0.3);
+}
+
+/* Instagram Gradient (Dah lazem background-image) */
+.social-icons a.ig-hover:hover {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%) !important;
+  box-shadow: 0 10px 20px rgba(214, 36, 159, 0.3);
+}
+
+/* Twitter / X Black */
+.social-icons a.x-hover:hover {
+  background-color: #000000 !important;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* LinkedIn Blue (Law 3ayzo) */
+.social-icons a.in-hover:hover {
+  background-color: #0077b5 !important;
+  box-shadow: 0 10px 20px rgba(0, 119, 181, 0.3);
+}
+
+.footer-divider {
+  border-color: rgba(255,255,255,0.1);
+  margin: 40px 0 30px;
+}
+
+.footer-bottom {
+  font-size: 0.85rem;
+  color: #777;
+}
+
+.payment-icons {
+  font-size: 1.4rem;
+  color: #555;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer-section {
+    padding-top: 50px;
+    text-align: center;
+  }
+  .footer-heading::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .social-icons {
+    justify-content: center;
+  }
+}

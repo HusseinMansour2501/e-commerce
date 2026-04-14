@@ -1,0 +1,13 @@
+<svg width="180" height="60" viewBox="0 0 180 60" xmlns="http://www.w3.org/2000/svg">
+  <rect width="180" height="60" rx="10" fill="#111827"></rect>
+  
+  <!-- Cart -->
+  <circle cx="40" cy="42" r="4" fill="white"></circle>
+  <circle cx="55" cy="42" r="4" fill="white"></circle>
+  <path d="M30 20 H60 L55 35 H35 Z" fill="#22c55e"></path>
+  
+  <!-- Text -->
+  <text x="75" y="38" font-size="22" fill="white" font-family="Arial" font-weight="bold">
+    Store
+  </text>
+</svg>

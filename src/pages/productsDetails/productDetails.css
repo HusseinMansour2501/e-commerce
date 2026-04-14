@@ -1,0 +1,87 @@
+.product-details-container {
+  min-height: 70vh;
+}
+
+/* Image Styling */
+.main-img-wrapper {
+  position: relative;
+  background: #f8f9fa;
+  padding: 20px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.main-product-img {
+  max-height: 500px;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+}
+
+.main-product-img:hover {
+  transform: scale(1.05);
+}
+
+.discount-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  padding: 8px 15px;
+  font-size: 0.9rem;
+  border-radius: 50px;
+}
+
+/* Info Section */
+.product-info-section h1 {
+  color: #2c3e50;
+  font-size: 2.5rem;
+}
+
+.star-rating {
+  background: #fff9e6;
+  color: #ffa502;
+  padding: 5px 12px;
+  border-radius: 50px;
+  font-weight: bold;
+  border: 1px solid #ffeaa7;
+}
+
+/* Price Logic */
+.current-price {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #64d4b3;
+}
+
+.original-price {
+  text-decoration: line-through;
+  color: #b2bec3;
+  font-size: 1.2rem;
+}
+
+/* Buttons */
+.add-btn {
+  background-color: #64d4b3 !important;
+  border: none !important;
+  transition: 0.3s !important;
+  font-weight: 600 !important;
+}
+
+.add-btn:hover {
+  background-color: #64d4b3 !important;
+  box-shadow: 0 5px 15px rgba(126, 103, 211, 0.4);
+}
+
+.product-description {
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+
+/* Loader */
+.loader-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;
+  font-size: 1.5rem;
+  color: #7e67d3;
+}

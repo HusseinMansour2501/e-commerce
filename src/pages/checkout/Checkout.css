@@ -1,0 +1,54 @@
+.checkout-container {
+  padding: 40px;
+  max-width: 500px;
+  margin: 50px auto;
+  background: #ffffff;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.order-summary {
+  background: #f8f9fa;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 25px;
+  border: 1px dashed #7e67d3;
+}
+
+.checkout-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.checkout-form input {
+  padding: 12px 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  transition: 0.3s;
+}
+
+.checkout-form input:focus {
+  border-color: #7e67d3;
+  box-shadow: 0 0 5px rgba(126, 103, 211, 0.3);
+}
+
+.place-order-btn {
+  background: #7e67d3; /* Lonak el-mufaddal */
+  color: white;
+  padding: 15px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.place-order-btn:hover {
+  background: #6a54b3;
+  transform: translateY(-2px);
+}
