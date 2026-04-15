@@ -3,15 +3,14 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProducts } from "../../rtk/slices/products-slice";
 
-// Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
-import "swiper/css/navigation"; // ضيف ستايل الـ navigation لو مش موجود
+import "swiper/css/navigation";
 
 import "./slider.css";
 
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { Link } from "react-router-dom"; // تأكد إنك بتعمل import من react-router-dom
+import { Link } from "react-router-dom";
 
 const Slider = () => {
   const productsData = useSelector((state) => state.products);
@@ -26,7 +25,7 @@ const Slider = () => {
     dispatch(fetchProducts());
   }, [dispatch]);
 
-  if (!products || products.length === 0) {
+  if (!Array.isArray(products) || products.length === 0) {
     return <div className="text-center p-5">Loading Featured Products...</div>;
   }
 
@@ -41,7 +40,7 @@ const Slider = () => {
           navigation
           pagination={{ clickable: true }}
           autoplay={{ delay: 3000 }}
-          loop={true}
+          loop={products.length > 1} // حل مشكلة الـ Swiper Loop Warning
           className="mySwiper"
         >
           {products.slice(0, 5).map((product) => (
