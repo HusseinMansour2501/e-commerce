@@ -6,13 +6,19 @@ import { useSelector } from "react-redux";
 import "./navbar.css";
 
 const AppNavabar = () => {
-  const cart = useSelector((state) => state.cart);
-  const products = useSelector((state) => state.products);
+  const cart = useSelector((state) => state.cart || []);
+
+  const products = useSelector((state) => {
+    if (Array.isArray(state.products)) return state.products;
+    if (state.products?.products) return state.products.products;
+    return [];
+  });
+
   const location = useLocation();
   const navigate = useNavigate();
 
   const [searchTerm, setSearchTerm] = useState("");
-  const [showDropdown, setShowDropdown] = useState(false); 
+  const [showDropdown, setShowDropdown] = useState(false);
 
   const handleSearch = (e) => {
     e.preventDefault();
@@ -23,14 +29,14 @@ const AppNavabar = () => {
     }
   };
 
- 
   const liveSearchResults = products
     .filter(
       (p) =>
-        p.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-        p.category.toLowerCase().includes(searchTerm.toLowerCase()),
+        p.title?.toLowerCase().includes(searchTerm.toLowerCase()) ||
+        p.category?.toLowerCase().includes(searchTerm.toLowerCase()),
     )
     .slice(0, 5);
+
   return (
     <Navbar expand="lg" sticky="top" className="custom-navbar">
       <Container>
@@ -47,7 +53,7 @@ const AppNavabar = () => {
               <Form.Control
                 type="search"
                 placeholder="Search products..."
-                className="search-input" // Shelna el-paddings el-zyada
+                className="search-input"
                 value={searchTerm}
                 onChange={(e) => {
                   setSearchTerm(e.target.value);
@@ -56,8 +62,6 @@ const AppNavabar = () => {
                 onBlur={() => setTimeout(() => setShowDropdown(false), 200)}
               />
               <Button type="submit" className="search-btn m-0">
-                {" "}
-                {/* m-0 3ashan neshel ay margin margin */}
                 Search
               </Button>
             </Form>
@@ -74,7 +78,7 @@ const AppNavabar = () => {
                       onClick={() => setSearchTerm("")}
                     >
                       <img
-                        src={p.thumbnail}
+                        src={p.thumbnail} 
                         alt={p.title}
                         width={40}
                         className="me-3"
@@ -125,7 +129,7 @@ const AppNavabar = () => {
             </Link>
             <Link to="/cart" className="nav-link cart-icon-wrapper">
               <span className="cart-emoji">🛒</span>
-              {cart.length > 0 && (
+              {cart && cart.length > 0 && (
                 <span className="cart-badge">{cart.length}</span>
               )}
             </Link>
@@ -134,6 +138,6 @@ const AppNavabar = () => {
       </Container>
     </Navbar>
   );
-};;
+};
 
 export default AppNavabar;
