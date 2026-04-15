@@ -6,21 +6,30 @@ import { fetchProducts } from "../../rtk/slices/products-slice";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import "swiper/css/navigation"; // ضيف ستايل الـ navigation لو مش موجود
 
 import "./slider.css";
 
-
 import { Pagination, Navigation, Autoplay } from "swiper/modules";
-import { Link } from "react-router";
+import { Link } from "react-router-dom"; // تأكد إنك بتعمل import من react-router-dom
 
 const Slider = () => {
-  const products = useSelector((state) => state.products);
+  const productsData = useSelector((state) => state.products);
+
+  const products = Array.isArray(productsData)
+    ? productsData
+    : productsData?.products || [];
 
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProducts());
-  }, [ dispatch]);
+  }, [dispatch]);
+
+  if (!products || products.length === 0) {
+    return <div className="text-center p-5">Loading Featured Products...</div>;
+  }
+
   return (
     <>
       <h2 className="featured-title">Featured Products</h2>
@@ -47,7 +56,10 @@ const Slider = () => {
                   </Link>
                 </div>
                 <div className="slide-image">
-                  <img src={product.images[0]} alt={product.title} />
+                  <img
+                    src={product.thumbnail || product.images?.[0]}
+                    alt={product.title}
+                  />
                 </div>
               </div>
             </SwiperSlide>
@@ -55,7 +67,7 @@ const Slider = () => {
         </Swiper>
       </div>
       <Link to="/products" className="button-details">
-        Products Details
+        View All Products
       </Link>
     </>
   );
