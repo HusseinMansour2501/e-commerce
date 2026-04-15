@@ -13,15 +13,17 @@ const Categories = () => {
   const uniqueCategories = [];
   const seenCategories = new Set();
 
-  products.forEach((product) => {
-    if (product.category && !seenCategories.has(product.category)) {
-      seenCategories.add(product.category);
-      uniqueCategories.push({
-        name: product.category,
-        image: product.thumbnail,
-      });
-    }
-  });
+  if (Array.isArray(products)) {
+    products.forEach((product) => {
+      if (product.category && !seenCategories.has(product.category)) {
+        seenCategories.add(product.category);
+        uniqueCategories.push({
+          name: product.category,
+          image: product.thumbnail,
+        });
+      }
+    });
+  }
 
   const displayCategories = uniqueCategories.slice(0, 4);
 
@@ -42,7 +44,7 @@ const Categories = () => {
               </Link>
             ))
           ) : (
-            <p className="text-center w-100">Loading categories...</p>
+            <p className="text-center w-100">Loading Categories...</p>
           )}
         </div>
       </div>
