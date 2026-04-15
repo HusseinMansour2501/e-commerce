@@ -4,18 +4,23 @@ import { useNavigate } from "react-router-dom";
 import "./categoryBar.css";
 
 const CategoryBar = () => {
-  const products = useSelector((state) => state.products);
+  const productsData = useSelector((state) => state.products);
+
+  const products = Array.isArray(productsData)
+    ? productsData
+    : productsData?.products || [];
+
   const navigate = useNavigate();
 
-  
-
-  // 1. Extract unique categories men el-products
-  const categories = ["all", ...new Set(products.map((p) => p.category))];
+  const categories = [
+    "all",
+    ...new Set(products.map((p) => p.category).filter(Boolean)),
+  ];
 
   const [activeCat, setActiveCat] = useState("all");
 
   const handleCategoryClick = (cat) => {
-    setActiveCat(cat); 
+    setActiveCat(cat);
     navigate(`/products`, { state: { selectedCategory: cat } });
   };
 
@@ -23,9 +28,9 @@ const CategoryBar = () => {
     <div className="category-bar-wrapper">
       <div className="container">
         <div className="category-items">
-          {categories.map((cat) => (
+          {categories.map((cat, index) => (
             <button
-              key={cat.id}
+              key={index}
               className={`cat-btn ${activeCat === cat ? "active" : ""}`}
               onClick={() => handleCategoryClick(cat)}
             >
