@@ -7,7 +7,7 @@ import axios from "axios";
 export const idProduct = createAsyncThunk(
   "detailsSlice/viewDetails",
   async (productId) => {
-    const res = await axios.get(`http://localhost:9000/products/${productId}`);
+    const res = await axios.get(`https://dummyjson.com/products/${productId}`);
     return res.data;
   },
 );
